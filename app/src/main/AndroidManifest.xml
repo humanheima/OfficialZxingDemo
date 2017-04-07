@@ -12,12 +12,16 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
- -->
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.google.zxing.client.android"
     android:installLocation="auto"
     android:versionCode="107"
     android:versionName="4.7.7">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -29,10 +33,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="22" />
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-feature
@@ -46,6 +46,9 @@
         android:name="android.hardware.wifi"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/launcher_icon"
@@ -58,12 +61,14 @@
             android:stateNotNeeded="true"
             android:theme="@style/CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden">
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SCAN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <!-- Allow web apps to launch Barcode Scanner by linking to http://zxing.appspot.com/scan. -->
@@ -124,18 +129,23 @@
             android:stateNotNeeded="true">
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.ENCODE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <!-- This allows us to handle the Share button in Contacts. -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/x-vcard" />
             </intent-filter>
             <!-- This allows us to handle sharing any plain text . -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
@@ -146,6 +156,7 @@
             android:stateNotNeeded="true">
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SEARCH_BOOK_CONTENTS" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -155,6 +166,7 @@
             android:stateNotNeeded="true">
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SHARE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -175,6 +187,14 @@
             android:label="@string/menu_help"
             android:screenOrientation="user"
             android:stateNotNeeded="true" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
