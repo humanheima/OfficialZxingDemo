@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\github\android\app\libs\core-3.3.0 .jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\core-3.3.0 _9118e0fe9c6e7d1fb168fd9b85a5124b0a1e286f.jar" />
+    </item>
+
+</items>
