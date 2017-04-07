@@ -23,14 +23,14 @@ public class MainActivity extends Activity {
         /**
          * 扫描出结果就返回
          */
-      /*  Intent intent = new Intent(Intents.Scan.ACTION);
+        Intent intent = new Intent(Intents.Scan.ACTION);
         intent.putExtra(Intents.Scan.RESULT_DISPLAY_DURATION_MS, 0L);
-        startActivityForResult(intent, REQUEST_CODE);*/
+        startActivityForResult(intent, REQUEST_CODE);
         /**
          * 扫描出结果继续扫描
          */
-        Intent intent = new Intent(this, CaptureActivity.class);
-        startActivity(intent);
+       /* Intent intent = new Intent(this, CaptureActivity.class);
+        startActivity(intent);*/
     }
 
     @Override

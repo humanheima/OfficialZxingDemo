@@ -739,6 +739,84 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int initialActivityCount=0x7f01001f;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int inner_corner_color=0x7f010109;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int inner_corner_length=0x7f01010a;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int inner_corner_width=0x7f01010b;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int inner_height=0x7f010105;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int inner_margintop=0x7f010106;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int inner_scan_bitmap=0x7f01010c;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int inner_scan_iscircle=0x7f01010e;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int inner_scan_line_period=0x7f01010f;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int inner_scan_speed=0x7f01010d;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int inner_width=0x7f010104;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1089,6 +1167,13 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int layout_goneMarginTop=0x7f0100b2;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int leftMargin=0x7f010107;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -1349,6 +1434,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int ratingBarStyleSmall=0x7f010098;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int rightMargin=0x7f010108;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -8267,5 +8359,206 @@ containing a value of this type.
           @attr name android:layout
         */
         public static final int ViewStubCompat_android_layout = 1;
+        /** Attributes that can be used with a ViewfinderView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_corner_color com.google.zxing.client.android:inner_corner_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_corner_length com.google.zxing.client.android:inner_corner_length}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_corner_width com.google.zxing.client.android:inner_corner_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_height com.google.zxing.client.android:inner_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_margintop com.google.zxing.client.android:inner_margintop}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_scan_bitmap com.google.zxing.client.android:inner_scan_bitmap}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_scan_iscircle com.google.zxing.client.android:inner_scan_iscircle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_scan_line_period com.google.zxing.client.android:inner_scan_line_period}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_scan_speed com.google.zxing.client.android:inner_scan_speed}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_inner_width com.google.zxing.client.android:inner_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_leftMargin com.google.zxing.client.android:leftMargin}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewfinderView_rightMargin com.google.zxing.client.android:rightMargin}</code></td><td></td></tr>
+           </table>
+           @see #ViewfinderView_inner_corner_color
+           @see #ViewfinderView_inner_corner_length
+           @see #ViewfinderView_inner_corner_width
+           @see #ViewfinderView_inner_height
+           @see #ViewfinderView_inner_margintop
+           @see #ViewfinderView_inner_scan_bitmap
+           @see #ViewfinderView_inner_scan_iscircle
+           @see #ViewfinderView_inner_scan_line_period
+           @see #ViewfinderView_inner_scan_speed
+           @see #ViewfinderView_inner_width
+           @see #ViewfinderView_leftMargin
+           @see #ViewfinderView_rightMargin
+         */
+        public static final int[] ViewfinderView = {
+            0x7f010104, 0x7f010105, 0x7f010106, 0x7f010107,
+            0x7f010108, 0x7f010109, 0x7f01010a, 0x7f01010b,
+            0x7f01010c, 0x7f01010d, 0x7f01010e, 0x7f01010f
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_corner_color}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.google.zxing.client.android:inner_corner_color
+        */
+        public static final int ViewfinderView_inner_corner_color = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_corner_length}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.google.zxing.client.android:inner_corner_length
+        */
+        public static final int ViewfinderView_inner_corner_length = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_corner_width}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.google.zxing.client.android:inner_corner_width
+        */
+        public static final int ViewfinderView_inner_corner_width = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_height}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+          @attr name com.google.zxing.client.android:inner_height
+        */
+        public static final int ViewfinderView_inner_height = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_margintop}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+          @attr name com.google.zxing.client.android:inner_margintop
+        */
+        public static final int ViewfinderView_inner_margintop = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_scan_bitmap}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.google.zxing.client.android:inner_scan_bitmap
+        */
+        public static final int ViewfinderView_inner_scan_bitmap = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_scan_iscircle}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.google.zxing.client.android:inner_scan_iscircle
+        */
+        public static final int ViewfinderView_inner_scan_iscircle = 10;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_scan_line_period}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.google.zxing.client.android:inner_scan_line_period
+        */
+        public static final int ViewfinderView_inner_scan_line_period = 11;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_scan_speed}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.google.zxing.client.android:inner_scan_speed
+        */
+        public static final int ViewfinderView_inner_scan_speed = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#inner_width}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+          @attr name com.google.zxing.client.android:inner_width
+        */
+        public static final int ViewfinderView_inner_width = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#leftMargin}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+          @attr name com.google.zxing.client.android:leftMargin
+        */
+        public static final int ViewfinderView_leftMargin = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.google.zxing.client.android.R.attr#rightMargin}
+          attribute's value can be found in the {@link #ViewfinderView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+          @attr name com.google.zxing.client.android:rightMargin
+        */
+        public static final int ViewfinderView_rightMargin = 4;
     };
 }

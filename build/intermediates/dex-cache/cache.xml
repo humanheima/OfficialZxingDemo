@@ -20,6 +20,15 @@
         <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_d53d90e99dd8828ff69914faf7e9d2518477e0e1.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="D:\github\android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="D:\github\android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_5308ef4c2dc64ec221f290e55398170853e7957b\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="C:\Users\Administrator\.android\build-cache\20165b76e7671cdfa92e3ef8188234daca15b742\output\jars\classes.jar"
         jumboMode="false"
@@ -27,6 +36,15 @@
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_6a1d44552dd299af8b260076e9a38e8b6335e961.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\android\app\libs\core-3.3.0 .jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="D:\github\android\app\build\intermediates\transforms\dex\debug\folders\1000\2\core-3.3.0 _9118e0fe9c6e7d1fb168fd9b85a5124b0a1e286f\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -99,6 +117,15 @@
         revision="25.0.2"
         sha1="150252b33b00274cc868578ade018fda0d43a3eb">
         <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_3adb03cac3aaef3d0c9bb5adbcea7bbf869ae27a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\github\android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9f62816c3dfcfd60e9ac3f3c349df34aee2e10c5">
+        <dex dex="D:\github\android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6f706432abc55f94494c41dca396878713481a3f\classes.dex" />
     </item>
 
 </items>
