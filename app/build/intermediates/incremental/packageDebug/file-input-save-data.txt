@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Apr 07 10:23:37 CST 2017
+#Fri Apr 07 11:06:51 CST 2017
 122.file=D\:\\github\\android\\app\\build\\intermediates\\assets\\debug\\html-fr\\license.html
 60.set=ASSET
 129.file=D\:\\github\\android\\app\\build\\intermediates\\assets\\debug\\html-ru\\license.html
