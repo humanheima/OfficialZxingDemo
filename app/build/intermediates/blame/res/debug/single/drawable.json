@@ -16,12 +16,12 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\drawable\\abc_vector_test.xml"
     },
     {
-        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
-    },
-    {
         "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\launcher_icon.png",
         "source": "D:\\github\\android\\app\\src\\main\\res\\drawable\\launcher_icon.png"
+    },
+    {
+        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",

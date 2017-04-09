@@ -16,7 +16,6 @@
 
 package com.google.zxing.client.android;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,7 +49,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
@@ -79,7 +77,7 @@ import java.util.Map;
  * @author dswitkin@google.com (Daniel Switkin)
  * @author Sean Owen
  */
-public final class CaptureActivity extends Activity implements SurfaceHolder.Callback {
+public final class CaptureActivity extends BaseCaptureActivity {
 
     private static final String TAG = CaptureActivity.class.getSimpleName();
 
@@ -96,25 +94,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
                     ResultMetadataType.ERROR_CORRECTION_LEVEL,
                     ResultMetadataType.POSSIBLE_COUNTRY);
 
-    private CameraManager cameraManager;
-    private CaptureActivityHandler handler;
-    private Result savedResultToShow;
     private ViewfinderView viewfinderView;
     private TextView statusView;
     private LinearLayout llResultView;
-    private Result lastResult;
-    private boolean hasSurface;
-    private boolean copyToClipboard;
-    private IntentSource source;
-    private String sourceUrl;
-    private ScanFromWebPageManager scanFromWebPageManager;
-    private Collection<BarcodeFormat> decodeFormats;
-    private Map<DecodeHintType, ?> decodeHints;
-    private String characterSet;
-    private HistoryManager historyManager;
-    private InactivityTimer inactivityTimer;
-    private BeepManager beepManager;
-    private AmbientLightManager ambientLightManager;
 
     ViewfinderView getViewfinderView() {
         return viewfinderView;
@@ -297,25 +279,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     }
 
     @Override
-    protected void onPause() {
-        if (handler != null) {
-            handler.quitSynchronously();
-            handler = null;
-        }
-        inactivityTimer.onPause();
-        ambientLightManager.stop();
-        beepManager.close();
-        cameraManager.closeDriver();
-        //historyManager = null; // Keep for onActivityResult
-        if (!hasSurface) {
-            SurfaceView surfaceView = (SurfaceView) findViewById(R.id.preview_view);
-            SurfaceHolder surfaceHolder = surfaceView.getHolder();
-            surfaceHolder.removeCallback(this);
-        }
-        super.onPause();
-    }
-
-    @Override
     protected void onDestroy() {
         inactivityTimer.shutdown();
         super.onDestroy();
@@ -440,6 +403,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
      * @param scaleFactor amount by which thumbnail was scaled
      * @param barcode     A greyscale bitmap of the camera data which was decoded.
      */
+    @Override
     public void handleDecode(Result rawResult, Bitmap barcode, float scaleFactor) {
         inactivityTimer.onActivity();
         lastResult = rawResult;
@@ -660,7 +624,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         }
     }
 
-    private void initCamera(SurfaceHolder surfaceHolder) {
+    @Override
+    public void initCamera(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
@@ -695,6 +660,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         builder.show();
     }
 
+    @Override
     public void restartPreviewAfterDelay(long delayMS) {
         if (handler != null) {
             handler.sendEmptyMessageDelayed(R.id.restart_preview, delayMS);

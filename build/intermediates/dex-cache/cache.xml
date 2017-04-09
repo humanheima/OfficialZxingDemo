@@ -2,24 +2,6 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\8e9aa32617d3b263c4182900ea53cee2281f3e3e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_6ae99c0fc4880fc4ab31d6a7648d2fae3a07e931.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\c23aa2dd49429347b708cecf0168d53dc940cf0d\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_d53d90e99dd8828ff69914faf7e9d2518477e0e1.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="D:\github\android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
@@ -27,15 +9,6 @@
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
         <dex dex="D:\github\android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_5308ef4c2dc64ec221f290e55398170853e7957b\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\20165b76e7671cdfa92e3ef8188234daca15b742\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_6a1d44552dd299af8b260076e9a38e8b6335e961.jar" />
     </item>
     <item
         is-multidex="true"
@@ -47,84 +20,12 @@
         <dex dex="D:\github\android\app\build\intermediates\transforms\dex\debug\folders\1000\2\core-3.3.0 _9118e0fe9c6e7d1fb168fd9b85a5124b0a1e286f\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\github\android\app\libs\core-3.3.0 .jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\core-3.3.0 _9118e0fe9c6e7d1fb168fd9b85a5124b0a1e286f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\be52ffa6aa0d78409b37792af94e58769b4639f9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_3a85423ef2e7f027a05e7a9e27458f4496adb0e8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\c64c0f1d6b07ba08be446ad0e85bc0b0b00deaf8\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_e3aaf1cd0ebf828d0e1a4d310707a31064dd057d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\9cc624efeab1c98392527ece4cecd761a0bbef37\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_7197869fdaf28f2ca78a69f6dd65359db92bb579.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\4922543ab68fca341d50458d135d7f3f1c6939f4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_143af08ab9aeff9f70a63e7762cbe09038ae4dd3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_77bbafad21bc1ac169e6a221a15373f3eab9dd96.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\fb6095f94d2356308800351595767237a9d44918\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_8e04eef7263463f8a1d03d57ac2f9c6e62c4acfc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\28ce9b97e23534273201094de7bdd3362803e601\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="D:\github\android\app\build\intermediates\pre-dexed\debug\classes_3adb03cac3aaef3d0c9bb5adbcea7bbf869ae27a.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="D:\github\android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="9f62816c3dfcfd60e9ac3f3c349df34aee2e10c5">
+        sha1="0155c104eb69e6af804c876853f787e426ef476d">
         <dex dex="D:\github\android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6f706432abc55f94494c41dca396878713481a3f\classes.dex" />
     </item>
 
