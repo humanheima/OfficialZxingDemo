@@ -1,5 +1,13 @@
 [
     {
+        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\bg_scan.png",
+        "source": "D:\\github\\android\\app\\src\\main\\res\\drawable-xxhdpi\\bg_scan.png"
+    },
+    {
+        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_scan_line.png",
+        "source": "D:\\github\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_scan_line.png"
+    },
+    {
         "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\launcher_icon.png",
         "source": "D:\\github\\android\\app\\src\\main\\res\\drawable-xxhdpi\\launcher_icon.png"
     }
