@@ -63,10 +63,10 @@ public class MyViewfinderView extends RelativeLayout {
 
     private void initTypedArray(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.MyViewfinderView);
-        marginTop = (int) ta.getDimension(R.styleable.MyViewfinderView_marginTop, 100);
-        marginLeft = (int) ta.getDimension(R.styleable.MyViewfinderView_left_Margin, 24);
-        marginRight = (int) ta.getDimension(R.styleable.MyViewfinderView_right_Margin, 24);
-        scanHeight = (int) ta.getDimension(R.styleable.MyViewfinderView_scan_height, ScreenUtil.dp2px(context,240));
+        marginTop = (int) ta.getDimension(R.styleable.MyViewfinderView_marginTop, ScreenUtil.dp2px(context, 80));
+        marginLeft = (int) ta.getDimension(R.styleable.MyViewfinderView_left_Margin, ScreenUtil.dp2px(context, 24));
+        marginRight = (int) ta.getDimension(R.styleable.MyViewfinderView_right_Margin, ScreenUtil.dp2px(context, 24));
+        scanHeight = (int) ta.getDimension(R.styleable.MyViewfinderView_scan_height, ScreenUtil.dp2px(context, 140));
         scanPeriod = ta.getInt(R.styleable.MyViewfinderView_scanPeriod, 3000);
         scanLine = ta.getDrawable(R.styleable.MyViewfinderView_scanLine);
         ta.recycle();

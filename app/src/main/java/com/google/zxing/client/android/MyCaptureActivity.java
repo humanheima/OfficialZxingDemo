@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
@@ -32,12 +33,13 @@ import java.io.IOException;
  * @author dswitkin@google.com (Daniel Switkin)
  * @author Sean Owen
  */
-public final class MyCaptureActivity extends BaseCaptureActivity  {
+public final class MyCaptureActivity extends BaseCaptureActivity {
 
     private static final String TAG = MyCaptureActivity.class.getSimpleName();
     public static final String ACTION = "com.google.zxing.client.android.MyCaptureActivity";
 
     private MyViewfinderView myViewfinderView;
+    private TextView textResult;
 
     public Handler getHandler() {
         return handler;
@@ -59,6 +61,7 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
         inactivityTimer = new InactivityTimer(this);
         beepManager = new BeepManager(this);
         ambientLightManager = new AmbientLightManager(this);
+        textResult = (TextView) findViewById(R.id.text_result);
     }
 
     @Override
@@ -117,7 +120,7 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
 
                 String customPromptMessage = intent.getStringExtra(Intents.Scan.PROMPT_MESSAGE);
                 if (customPromptMessage != null) {
-                    Log.e(TAG,customPromptMessage);
+                    Log.e(TAG, customPromptMessage);
                 }
 
             } else if (dataString != null && dataString.contains("http://www.google") &&
@@ -220,8 +223,8 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
             return;
         }
 
-        TextView formatTextView = (TextView) findViewById(R.id.format_text_view);
         CharSequence displayContents = resultHandler.getDisplayContents();
+        textResult.setText(displayContents);
         Log.e(TAG, "format=" + rawResult.getBarcodeFormat().toString() + ",displayContents=" + displayContents);
     }
 
@@ -310,4 +313,21 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
         }
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_FOCUS:
+            case KeyEvent.KEYCODE_CAMERA:
+                return true;
+            // Use volume up/down to turn on light
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                cameraManager.setTorch(true);
+                return true;
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                cameraManager.setTorch(false);
+                return true;
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
