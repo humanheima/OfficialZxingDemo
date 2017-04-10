@@ -18,12 +18,14 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.camera.CameraManager;
 import com.google.zxing.client.android.result.ResultHandler;
 import com.google.zxing.client.android.result.ResultHandlerFactory;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 /**
  * This activity opens the camera and does the actual scanning on a background thread. It draws a
@@ -93,10 +95,14 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
         if (intent != null) {
 
             String action = intent.getAction();
-            String dataString = intent.getDataString();
-
+            decodeFormats = DecodeFormatManager.parseDecodeFormats(intent);
+            decodeHints = DecodeHintManager.parseDecodeHints(intent);
+            Iterator<BarcodeFormat> iterator = decodeFormats.iterator();
+            while (iterator.hasNext()) {
+                Log.e(TAG, iterator.next().name());
+            }
             if (ACTION.equals(action)) {
-
+                Log.e(TAG, "ACTION.equals(action)");
                 // Scan the formats the intent requested, and return the result to the calling activity.
                 source = IntentSource.NATIVE_APP_INTENT;
                 decodeFormats = DecodeFormatManager.parseDecodeFormats(intent);
@@ -123,16 +129,7 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
                     Log.e(TAG, customPromptMessage);
                 }
 
-            } else if (dataString != null && dataString.contains("http://www.google") &&
-                    dataString.contains("/m/products/scan")) {
-
-                // Scan only products and send the result to mobile Product Search.
-                source = IntentSource.PRODUCT_SEARCH_LINK;
-                sourceUrl = dataString;
-                decodeFormats = DecodeFormatManager.PRODUCT_FORMATS;
-
             }
-
             characterSet = intent.getStringExtra(Intents.Scan.CHARACTER_SET);
 
         }

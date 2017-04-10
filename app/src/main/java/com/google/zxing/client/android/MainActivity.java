@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+    private static final String TAG = "MainActivity";
     public static final int
             REQUEST_CODE = 14;
     private TextView textResult;
@@ -30,6 +31,9 @@ public class MainActivity extends Activity {
          * 扫描出结果继续扫描
          */
         Intent intent = new Intent(this, MyCaptureActivity.class);
+        //扫二维码
+        //intent.putExtra(Intents.Scan.FORMATS, BarcodeFormat.QR_CODE.name());
+        intent.putExtra(Intents.Scan.FORMATS, DecodeFormatManager.ONE_D_FORMAT_LIST);
         startActivity(intent);
     }
 
