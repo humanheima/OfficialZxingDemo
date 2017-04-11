@@ -266,7 +266,7 @@ public final class CameraManager {
      *
      * @return {@link Rect} expressing barcode scan area in terms of the preview size
      */
-    public synchronized Rect getFramingRectInPreview() {
+    public synchronized Rect getFramingRectInPreview(boolean portrait) {
         if (framingRectInPreview == null) {
             Rect framingRect = getFramingRect();
             if (framingRect == null) {
@@ -279,15 +279,19 @@ public final class CameraManager {
                 // Called early, before init even finished
                 return null;
             }
-     /* rect.left = rect.left * cameraResolution.x / screenResolution.x;
-      rect.right = rect.right * cameraResolution.x / screenResolution.x;
-      rect.top = rect.top * cameraResolution.y / screenResolution.y;
-      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;*/
-            //竖屏
-            rect.left = rect.left * cameraResolution.y / screenResolution.x;
-            rect.right = rect.right * cameraResolution.y / screenResolution.x;
-            rect.top = rect.top * cameraResolution.x / screenResolution.y;
-            rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+            if (portrait) {
+                //竖屏
+                rect.left = rect.left * cameraResolution.y / screenResolution.x;
+                rect.right = rect.right * cameraResolution.y / screenResolution.x;
+                rect.top = rect.top * cameraResolution.x / screenResolution.y;
+                rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+            } else {
+                //横屏
+                rect.left = rect.left * cameraResolution.x / screenResolution.x;
+                rect.right = rect.right * cameraResolution.x / screenResolution.x;
+                rect.top = rect.top * cameraResolution.y / screenResolution.y;
+                rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+            }
             framingRectInPreview = rect;
         }
         return framingRectInPreview;
@@ -340,8 +344,8 @@ public final class CameraManager {
      * @param height The height of the image.
      * @return A PlanarYUVLuminanceSource instance.
      */
-    public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
-        Rect rect = getFramingRectInPreview();
+    public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height, boolean iportrait) {
+        Rect rect = getFramingRectInPreview(iportrait);
         if (rect == null) {
             return null;
         }

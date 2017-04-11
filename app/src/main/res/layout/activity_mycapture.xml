@@ -16,8 +16,8 @@
         android:layout_height="match_parent"
         app:height="240dp"
         app:leftMargin="24dp"
-        app:marginTop="100dp"
         app:rightMargin="24dp"
+        app:marginTop="100dp"
         app:scanPeriod="3000"/>
 
     <TextView

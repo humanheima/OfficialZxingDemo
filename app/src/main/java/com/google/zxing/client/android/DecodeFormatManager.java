@@ -22,7 +22,6 @@ import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -41,7 +40,8 @@ final class DecodeFormatManager {
     static final Set<BarcodeFormat> DATA_MATRIX_FORMATS = EnumSet.of(BarcodeFormat.DATA_MATRIX);
     static final Set<BarcodeFormat> AZTEC_FORMATS = EnumSet.of(BarcodeFormat.AZTEC);
     static final Set<BarcodeFormat> PDF417_FORMATS = EnumSet.of(BarcodeFormat.PDF_417);
-    public static final String ONE_D_FORMAT_LIST = "EAN_8,EAN_13,RSS_14,RSS_EXPANDED,UPC_A,UPC_E,CODABAR,CODE_39,CODE_93,CODE_128,ITF";
+    //public static final String ONE_D_FORMAT_LIST = "EAN_8,EAN_13,RSS_14,RSS_EXPANDED,UPC_A,UPC_E,CODABAR,CODE_39,CODE_93,CODE_128,ITF";
+    public static final String ONE_D_FORMAT_LIST = "EAN_13";
 
     static {
         PRODUCT_FORMATS = EnumSet.of(BarcodeFormat.UPC_A,

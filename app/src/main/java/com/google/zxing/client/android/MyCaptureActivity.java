@@ -4,6 +4,8 @@ package com.google.zxing.client.android;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,10 +21,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.camera.CameraManager;
 import com.google.zxing.client.android.result.ResultHandler;
 import com.google.zxing.client.android.result.ResultHandlerFactory;
+import com.google.zxing.client.android.util.ScreenUtil;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -42,6 +46,7 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
 
     private MyViewfinderView myViewfinderView;
     private TextView textResult;
+
 
     public Handler getHandler() {
         return handler;
@@ -64,6 +69,13 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
         beepManager = new BeepManager(this);
         ambientLightManager = new AmbientLightManager(this);
         textResult = (TextView) findViewById(R.id.text_result);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            portrait = true;
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            portrait = false;
+        }
     }
 
     @Override
@@ -76,6 +88,9 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
         // off screen.
         cameraManager = new CameraManager(getApplication());
         myViewfinderView = (MyViewfinderView) findViewById(R.id.myViewFinderView);
+        if (!portrait) {
+            myViewfinderView.setMarginTop(ScreenUtil.dp2px(this, 40));
+        }
 
         handler = null;
         lastResult = null;
@@ -100,6 +115,12 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
             Iterator<BarcodeFormat> iterator = decodeFormats.iterator();
             while (iterator.hasNext()) {
                 Log.e(TAG, iterator.next().name());
+            }
+            if (decodeHints != null) {
+                Iterator<DecodeHintType> iterator1 = decodeHints.keySet().iterator();
+                while (iterator1.hasNext()){
+                    Log.e(TAG, iterator1.next().name());
+                }
             }
             if (ACTION.equals(action)) {
                 Log.e(TAG, "ACTION.equals(action)");
@@ -220,7 +241,7 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
             return;
         }
 
-        CharSequence displayContents = resultHandler.getDisplayContents();
+        CharSequence displayContents =rawResult.getText();
         textResult.setText(displayContents);
         Log.e(TAG, "format=" + rawResult.getBarcodeFormat().toString() + ",displayContents=" + displayContents);
     }
@@ -326,5 +347,9 @@ public final class MyCaptureActivity extends BaseCaptureActivity {
 
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public boolean isPortrait() {
+        return portrait;
     }
 }

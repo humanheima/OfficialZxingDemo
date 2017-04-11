@@ -54,6 +54,7 @@ public class MyViewfinderView extends RelativeLayout {
     private int marginRight;
     //扫描线的周期
     private int scanPeriod;
+    private RelativeLayout relativeLayout;
 
     public MyViewfinderView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -63,7 +64,7 @@ public class MyViewfinderView extends RelativeLayout {
 
     private void initTypedArray(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.MyViewfinderView);
-        marginTop = (int) ta.getDimension(R.styleable.MyViewfinderView_marginTop, ScreenUtil.dp2px(context, 80));
+        marginTop = (int) ta.getDimension(R.styleable.MyViewfinderView_marginTop, ScreenUtil.dp2px(context, 0));
         marginLeft = (int) ta.getDimension(R.styleable.MyViewfinderView_left_Margin, ScreenUtil.dp2px(context, 24));
         marginRight = (int) ta.getDimension(R.styleable.MyViewfinderView_right_Margin, ScreenUtil.dp2px(context, 24));
         scanHeight = (int) ta.getDimension(R.styleable.MyViewfinderView_scan_height, ScreenUtil.dp2px(context, 140));
@@ -82,7 +83,7 @@ public class MyViewfinderView extends RelativeLayout {
             scanLine = getResources().getDrawable(R.drawable.ic_scan_line);
         }
         scanFrame = getResources().getDrawable(R.drawable.bg_scan);
-        RelativeLayout relativeLayout = new RelativeLayout(context);
+        relativeLayout = new RelativeLayout(context);
         int scanWidth = ScreenUtil.getScreenWidth(context) - ScreenUtil.dp2px(context, marginLeft) - ScreenUtil.dp2px(context, marginRight);
         LayoutParams params = new LayoutParams(scanWidth, scanHeight);
         params.topMargin = marginTop;
@@ -122,4 +123,11 @@ public class MyViewfinderView extends RelativeLayout {
         animation.start();
     }
 
+    public void setMarginTop(int marginTop) {
+        this.marginTop = marginTop;
+        CameraManager.TOP_MARGIN = marginTop;
+        RelativeLayout.LayoutParams layoutParams= (LayoutParams) relativeLayout.getLayoutParams();
+        layoutParams.topMargin=marginTop;
+        relativeLayout.setLayoutParams(layoutParams);
+    }
 }
