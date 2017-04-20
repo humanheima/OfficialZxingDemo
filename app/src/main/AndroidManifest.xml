@@ -198,7 +198,7 @@
         </activity>
         <activity
             android:name=".MyCaptureActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.MyCaptureActivity"/>
 

@@ -46,14 +46,18 @@ public final class CameraManager {
     private static final int MIN_FRAME_HEIGHT = 240;
     private static final int MAX_FRAME_WIDTH = 1200; // = 5/8 * 1920
     private static final int MAX_FRAME_HEIGHT = 675; // = 5/8 * 1080
+    private static final int DEFAULT_SIZE = -100;
+
     //距顶部的距离
-    public static int TOP_MARGIN = 0;
+    public static int TOP_MARGIN = DEFAULT_SIZE;
     //距左边的距离
-    public static int LEFT_MARGIN = 0;
+    public static int LEFT_MARGIN = DEFAULT_SIZE;
     //距右边的距离
-    public static int RIGHT_MARGIN = 0;
+    public static int RIGHT_MARGIN = DEFAULT_SIZE;
+    //取景框的宽度
+    public static int WIDTH = DEFAULT_SIZE;
     //取景框的高度
-    public static int HEIGHT = 675;
+    public static int HEIGHT = DEFAULT_SIZE;
 
     private final Context context;
     private final CameraConfigurationManager configManager;
@@ -233,15 +237,45 @@ public final class CameraManager {
                 return null;
             }
             Log.e(TAG, "screenResolution.x=" + screenResolution.x + ",screenResolution.y=" + screenResolution.y);
-            int leftOffset = LEFT_MARGIN;
-            int topOffset = TOP_MARGIN;
-            int rightOffset = RIGHT_MARGIN;
-            int width = screenResolution.x - leftOffset - rightOffset;
-            if (width <= 0) {
-                width = MIN_FRAME_WIDTH;
+            //默认识别范围全屏
+            int width = screenResolution.x;
+            int height = screenResolution.y;
+            int leftOffset = 0;
+            int rightOffset = 0;
+            int topOffset = 0;
+            //用户设置了宽度
+            if (WIDTH != DEFAULT_SIZE) {
+                if (WIDTH > 0 && WIDTH < width) {
+                    width = WIDTH;
+                }
             }
-            int height = HEIGHT > 0 ? HEIGHT : MIN_FRAME_HEIGHT;
-            Log.e(TAG, "width=" + width + ",height=" + height);
+            leftOffset = (screenResolution.x - width) / 2;
+            if (LEFT_MARGIN != DEFAULT_SIZE) {
+                if (WIDTH == DEFAULT_SIZE) {
+                    leftOffset = LEFT_MARGIN;
+                }
+            }
+            if (RIGHT_MARGIN != DEFAULT_SIZE) {
+                if (WIDTH == DEFAULT_SIZE) {
+                    rightOffset = RIGHT_MARGIN;
+                }
+            }
+            //用户只设置了左右边距，没设置具体的宽度
+            if (LEFT_MARGIN != DEFAULT_SIZE && RIGHT_MARGIN != DEFAULT_SIZE && WIDTH == DEFAULT_SIZE) {
+                width = screenResolution.x - leftOffset - rightOffset;
+            }
+            //距顶部的高度
+            if (TOP_MARGIN != DEFAULT_SIZE) {
+                topOffset = TOP_MARGIN;
+            }
+            //用户设置了高度
+            if (HEIGHT != DEFAULT_SIZE) {
+                if (HEIGHT > 0 && HEIGHT < height) {
+                    height = HEIGHT;
+                }
+            }
+
+            Log.e(TAG, "width=" + width + ",height=" + height + ",leftOffset=" + leftOffset + "topOffset=" + topOffset + ",rightOffset=" + rightOffset);
 
             framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
             Log.d(TAG, "Calculated framing rect: " + framingRect);
@@ -250,7 +284,8 @@ public final class CameraManager {
     }
 
     private static int findDesiredDimensionInRange(int resolution, int hardMin, int hardMax) {
-        int dim = 5 * resolution / 8; // Target 5/8 of each dimension
+        //int dim = 5 * resolution / 8; // Target 5/8 of each dimension
+        int dim = resolution;
         if (dim < hardMin) {
             return hardMin;
         }
@@ -344,8 +379,8 @@ public final class CameraManager {
      * @param height The height of the image.
      * @return A PlanarYUVLuminanceSource instance.
      */
-    public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height, boolean iportrait) {
-        Rect rect = getFramingRectInPreview(iportrait);
+    public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height, boolean portrait) {
+        Rect rect = getFramingRectInPreview(portrait);
         if (rect == null) {
             return null;
         }
