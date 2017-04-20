@@ -4,12 +4,15 @@ package com.google.zxing.client.android;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
@@ -17,12 +20,16 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.camera.CameraManager;
 import com.google.zxing.client.android.result.ResultHandler;
 import com.google.zxing.client.android.result.ResultHandlerFactory;
+import com.google.zxing.client.android.util.ScreenUtil;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 /**
  * This activity opens the camera and does the actual scanning on a background thread. It draws a
@@ -32,12 +39,14 @@ import java.io.IOException;
  * @author dswitkin@google.com (Daniel Switkin)
  * @author Sean Owen
  */
-public final class MyCaptureActivity extends BaseCaptureActivity  {
+public final class MyCaptureActivity extends BaseCaptureActivity {
 
     private static final String TAG = MyCaptureActivity.class.getSimpleName();
     public static final String ACTION = "com.google.zxing.client.android.MyCaptureActivity";
 
     private MyViewfinderView myViewfinderView;
+    private TextView textResult;
+
 
     public Handler getHandler() {
         return handler;
@@ -59,6 +68,14 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
         inactivityTimer = new InactivityTimer(this);
         beepManager = new BeepManager(this);
         ambientLightManager = new AmbientLightManager(this);
+        textResult = (TextView) findViewById(R.id.text_result);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            portrait = true;
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            portrait = false;
+        }
     }
 
     @Override
@@ -71,6 +88,9 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
         // off screen.
         cameraManager = new CameraManager(getApplication());
         myViewfinderView = (MyViewfinderView) findViewById(R.id.myViewFinderView);
+        if (!portrait) {
+            myViewfinderView.setMarginTop(ScreenUtil.dp2px(this, 40));
+        }
 
         handler = null;
         lastResult = null;
@@ -90,10 +110,20 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
         if (intent != null) {
 
             String action = intent.getAction();
-            String dataString = intent.getDataString();
-
+            decodeFormats = DecodeFormatManager.parseDecodeFormats(intent);
+            decodeHints = DecodeHintManager.parseDecodeHints(intent);
+            Iterator<BarcodeFormat> iterator = decodeFormats.iterator();
+            while (iterator.hasNext()) {
+                Log.e(TAG, iterator.next().name());
+            }
+            if (decodeHints != null) {
+                Iterator<DecodeHintType> iterator1 = decodeHints.keySet().iterator();
+                while (iterator1.hasNext()){
+                    Log.e(TAG, iterator1.next().name());
+                }
+            }
             if (ACTION.equals(action)) {
-
+                Log.e(TAG, "ACTION.equals(action)");
                 // Scan the formats the intent requested, and return the result to the calling activity.
                 source = IntentSource.NATIVE_APP_INTENT;
                 decodeFormats = DecodeFormatManager.parseDecodeFormats(intent);
@@ -117,19 +147,10 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
 
                 String customPromptMessage = intent.getStringExtra(Intents.Scan.PROMPT_MESSAGE);
                 if (customPromptMessage != null) {
-                    Log.e(TAG,customPromptMessage);
+                    Log.e(TAG, customPromptMessage);
                 }
 
-            } else if (dataString != null && dataString.contains("http://www.google") &&
-                    dataString.contains("/m/products/scan")) {
-
-                // Scan only products and send the result to mobile Product Search.
-                source = IntentSource.PRODUCT_SEARCH_LINK;
-                sourceUrl = dataString;
-                decodeFormats = DecodeFormatManager.PRODUCT_FORMATS;
-
             }
-
             characterSet = intent.getStringExtra(Intents.Scan.CHARACTER_SET);
 
         }
@@ -220,8 +241,8 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
             return;
         }
 
-        TextView formatTextView = (TextView) findViewById(R.id.format_text_view);
-        CharSequence displayContents = resultHandler.getDisplayContents();
+        CharSequence displayContents =rawResult.getText();
+        textResult.setText(displayContents);
         Log.e(TAG, "format=" + rawResult.getBarcodeFormat().toString() + ",displayContents=" + displayContents);
     }
 
@@ -310,4 +331,25 @@ public final class MyCaptureActivity extends BaseCaptureActivity  {
         }
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_FOCUS:
+            case KeyEvent.KEYCODE_CAMERA:
+                return true;
+            // Use volume up/down to turn on light
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                cameraManager.setTorch(true);
+                return true;
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                cameraManager.setTorch(false);
+                return true;
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public boolean isPortrait() {
+        return portrait;
+    }
 }

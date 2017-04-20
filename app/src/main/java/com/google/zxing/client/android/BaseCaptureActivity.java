@@ -45,6 +45,8 @@ import java.util.Map;
  */
 public abstract class BaseCaptureActivity extends Activity implements SurfaceHolder.Callback {
 
+    //是否是竖屏
+    protected boolean portrait;
     protected static final String TAG = BaseCaptureActivity.class.getSimpleName();
 
     protected static final long DEFAULT_INTENT_RESULT_DURATION_MS = 1500L;
@@ -146,4 +148,7 @@ public abstract class BaseCaptureActivity extends Activity implements SurfaceHol
 
     }
 
+    public boolean isPortrait() {
+        return portrait;
+    }
 }

@@ -56,20 +56,20 @@
         "source": "D:\\github\\android\\app\\src\\main\\res\\layout\\activity_mycapture.xml"
     },
     {
-        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
         "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\help.xml",
         "source": "D:\\github\\android\\app\\src\\main\\res\\layout\\help.xml"
     },
     {
-        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
         "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\28ce9b97e23534273201094de7bdd3362803e601\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
         "merged": "D:\\github\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",

@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.zxing.DecodeHintType;
+
 public class MainActivity extends Activity {
 
+    private static final String TAG = "MainActivity";
     public static final int
             REQUEST_CODE = 14;
     private TextView textResult;
@@ -30,6 +33,11 @@ public class MainActivity extends Activity {
          * 扫描出结果继续扫描
          */
         Intent intent = new Intent(this, MyCaptureActivity.class);
+        //扫二维码
+        //intent.putExtra(Intents.Scan.FORMATS, BarcodeFormat.QR_CODE.name());
+        intent.putExtra(Intents.Scan.FORMATS, DecodeFormatManager.ONE_D_FORMAT_LIST);
+        intent.putExtra(Intents.Scan.CHARACTER_SET, "UTF-8");
+        intent.putExtra(DecodeHintType.PURE_BARCODE.name(),DecodeHintType.PURE_BARCODE.name());
         startActivity(intent);
     }
 

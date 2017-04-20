@@ -111,7 +111,7 @@ public final class ViewfinderView extends View {
         }
         //中间的取景框
         Rect frame = cameraManager.getFramingRect();
-        Rect previewFrame = cameraManager.getFramingRectInPreview();
+        Rect previewFrame = cameraManager.getFramingRectInPreview(true);
         if (frame == null || previewFrame == null) {
             return;
         }
